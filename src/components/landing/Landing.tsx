@@ -169,14 +169,12 @@ function ProviderPill({ name, color }: { name: string; color: string }) {
 
 // ── Main landing ────────────────────────────────────────────────────────────
 export default function Landing() {
-  const [showMacGuide, setShowMacGuide] = useState(false)
   const DOWNLOAD_URLS = {
     windows: 'https://github.com/alfarjoao/pantheon-growth-ai-lp/releases/latest/download/Pantheon.Growth.Setup.4.0.0.exe',
-    mac: 'https://github.com/alfarjoao/pantheon-growth-ai-lp/releases/latest/download/Pantheon.Growth-4.0.0-arm64.dmg',
+    mac: 'https://github.com/alfarjoao/pantheon-growth-ai-lp/releases/latest/download/Pantheon.Growth-4.0.0-arm64.pkg',
   }
 
   const triggerInstall = (platform: 'windows' | 'mac') => {
-    if (platform === 'mac') { setShowMacGuide(true); return }
     const a = document.createElement('a')
     a.href = DOWNLOAD_URLS[platform]
     a.download = ''
@@ -645,40 +643,6 @@ export default function Landing() {
       </section>
 
 
-      {/* ── MAC INSTALL GUIDE MODAL ── */}
-      {showMacGuide && (
-        <div onClick={() => setShowMacGuide(false)} style={{ position: 'fixed', inset: 0, zIndex: 9999, background: 'rgba(0,0,0,.85)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 24 }}>
-          <div onClick={e => e.stopPropagation()} style={{ background: '#111', border: '1px solid var(--gold)', borderRadius: 16, padding: '40px 36px', maxWidth: 480, width: '100%', position: 'relative' }}>
-            <button onClick={() => setShowMacGuide(false)} style={{ position: 'absolute', top: 16, right: 16, background: 'none', border: 'none', color: 'var(--t3)', cursor: 'pointer', fontSize: 20, lineHeight: 1 }}>&#x2715;</button>
-            <div style={{ fontSize: 32, marginBottom: 12 }}>Mac</div>
-            <h3 style={{ color: 'var(--gold)', fontSize: 20, fontWeight: 700, marginBottom: 8 }}>Install on Mac</h3>
-            <p style={{ color: 'var(--t2)', fontSize: 14, marginBottom: 24, lineHeight: 1.6 }}>
-              macOS blocks unsigned apps by default. Follow these 3 steps:
-            </p>
-            <ol style={{ color: 'var(--t2)', fontSize: 14, lineHeight: 2, paddingLeft: 20, marginBottom: 28 }}>
-              <li>Download and open the <code style={{ color: 'var(--gold)', background: '#1a1a1a', padding: '1px 6px', borderRadius: 4 }}>.dmg</code> below</li>
-              <li>Drag <strong style={{ color: 'var(--t1)' }}>Pantheon Growth</strong> to your Applications folder</li>
-              <li>Open <strong style={{ color: 'var(--t1)' }}>Terminal</strong> and run this command:</li>
-            </ol>
-            <div style={{ background: '#000', border: '1px solid #333', borderRadius: 8, padding: '12px 16px', marginBottom: 28, fontFamily: 'monospace', fontSize: 13, color: '#7fff7f', userSelect: 'all' as const }}>
-              xattr -cr &quot;/Applications/Pantheon Growth.app&quot;
-            </div>
-            <p style={{ color: 'var(--t3)', fontSize: 13, marginBottom: 24 }}>
-              After running that command, double-click the app in Applications — it opens normally.
-            </p>
-            <a
-              href={DOWNLOAD_URLS.mac}
-              download
-              target='_blank'
-              rel='noopener noreferrer'
-              onClick={() => setShowMacGuide(false)}
-              style={{ display: 'block', textAlign: 'center', background: 'linear-gradient(135deg,#b99f65,#d4b87a)', color: '#000', fontWeight: 700, fontSize: 15, padding: '14px 0', borderRadius: 10, textDecoration: 'none' }}
-            >
-              Download for Mac (Apple Silicon)
-            </a>
-          </div>
-        </div>
-      )}
       {/* ── FOOTER ── */}
       <footer style={{ position: 'relative', zIndex: 1, borderTop: '1px solid var(--border)', padding: '18px 56px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
