@@ -170,12 +170,19 @@ function ProviderPill({ name, color }: { name: string; color: string }) {
 // ── Main landing ────────────────────────────────────────────────────────────
 export default function Landing() {
   const DOWNLOAD_URLS = {
-    windows: 'https://github.com/alfarjoao/pantheon-growth-ai-plataform/releases/latest/download/Pantheon%20Growth%20Setup%204.0.0.exe',
-    mac: 'https://github.com/alfarjoao/pantheon-growth-ai-plataform/releases/latest/download/Pantheon%20Growth-4.0.0.dmg',
+    windows: 'https://github.com/alfarjoao/pantheon-growth-ai-lp/releases/latest/download/Pantheon.Growth.Setup.4.0.0.exe',
+    mac: 'https://github.com/alfarjoao/pantheon-growth-ai-lp/releases/latest/download/Pantheon.Growth-4.0.0.dmg',
   }
 
   const triggerInstall = (platform: 'windows' | 'mac') => {
-    window.open(DOWNLOAD_URLS[platform], '_blank')
+    const a = document.createElement('a')
+    a.href = DOWNLOAD_URLS[platform]
+    a.download = ''
+    a.target = '_blank'
+    a.rel = 'noopener noreferrer'
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
   }
 
   const tr = (delay = 0) => ({ opacity: 0, animation: `fadeUp .6s ${delay}ms both` })
