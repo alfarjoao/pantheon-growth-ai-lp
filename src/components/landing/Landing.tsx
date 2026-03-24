@@ -175,14 +175,7 @@ export default function Landing() {
   }
 
   const triggerInstall = (platform: 'windows' | 'mac') => {
-    const a = document.createElement('a')
-    a.href = DOWNLOAD_URLS[platform]
-    a.download = ''
-    a.target = '_blank'
-    a.rel = 'noopener noreferrer'
-    document.body.appendChild(a)
-    a.click()
-    document.body.removeChild(a)
+    window.location.href = DOWNLOAD_URLS[platform]
   }
 
   const tr = (delay = 0) => ({ opacity: 0, animation: `fadeUp .6s ${delay}ms both` })
