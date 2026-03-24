@@ -171,7 +171,7 @@ function ProviderPill({ name, color }: { name: string; color: string }) {
 export default function Landing() {
   const DOWNLOAD_URLS = {
     windows: 'https://github.com/alfarjoao/pantheon-growth-ai-lp/releases/latest/download/Pantheon.Growth.Setup.4.0.0.exe',
-    mac: 'https://github.com/alfarjoao/pantheon-growth-ai-lp/releases/latest/download/Pantheon.Growth-4.0.0.dmg',
+    mac: 'https://github.com/alfarjoao/pantheon-growth-ai-lp/releases/latest/download/Pantheon.Growth-4.0.0-arm64.dmg',
   }
 
   const triggerInstall = (platform: 'windows' | 'mac') => {
