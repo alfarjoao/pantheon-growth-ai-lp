@@ -170,8 +170,8 @@ function ProviderPill({ name, color }: { name: string; color: string }) {
 // ── Main landing ────────────────────────────────────────────────────────────
 export default function Landing() {
   const DOWNLOAD_URLS = {
-    windows: 'https://github.com/alfarjoao/pantheon-growth-ai-plataform/releases/download/v4.0.4/Pantheon.Growth.Setup.4.0.4.exe',
-    mac: 'https://github.com/alfarjoao/pantheon-growth-ai-plataform/releases/download/v4.0.4/Pantheon.Growth-4.0.4-arm64.pkg',
+    windows: 'https://github.com/alfarjoao/pantheon-growth-ai-plataform/releases/download/v4.0.5/Pantheon.Growth.Setup.4.0.5.exe',
+    mac: 'https://github.com/alfarjoao/pantheon-growth-ai-plataform/releases/download/v4.0.5/Pantheon.Growth-4.0.5-arm64.pkg',
   }
 
   const triggerInstall = (platform: 'windows' | 'mac') => {
